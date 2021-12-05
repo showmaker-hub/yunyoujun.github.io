@@ -1,0 +1,437 @@
+<!DOCTYPE html><html lang="zh-CN"><head><!-- hexo injector head_begin start --><link href="/css/hexo-tag-common.css" rel="stylesheet"/><!-- hexo injector head_begin end --><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="theme-color" content="#0078E7"><meta name="author" content="云游君"><meta name="copyright" content="云游君"><meta name="generator" content="Hexo 5.4.0"><meta name="theme" content="hexo-theme-yun"><title>旋转吧！徽章！ | 云游君的小站</title><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@900&amp;display=swap" media="print" onload="this.media='all'"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/star-markdown-css@0.1.25/dist/yun/yun-markdown.min.css"><script src="//at.alicdn.com/t/font_1140697_dxory92pb0h.js" async></script><script src="https://cdn.jsdelivr.net/npm/scrollreveal/dist/scrollreveal.min.js" defer></script><script>function initScrollReveal() {
+  [".post-card",".post-content img"].forEach((target)=> {
+    ScrollReveal().reveal(target);
+  })
+}
+document.addEventListener("DOMContentLoaded", initScrollReveal);
+document.addEventListener("pjax:success", initScrollReveal);
+</script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.css"><script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/katex.min.js"></script><link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.css"><script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/copy-tex.min.js"></script><script defer src="https://cdn.jsdelivr.net/npm/katex@latest/dist/contrib/auto-render.min.js"></script><script>document.addEventListener("DOMContentLoaded", () => {
+  Yun.utils.renderKatex();
+});</script><link id="light-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism.css" media="(prefers-color-scheme: light)"><link id="dark-prism-css" rel="stylesheet" href="https://cdn.jsdelivr.net/npm/prismjs@latest/themes/prism-tomorrow.css" media="(prefers-color-scheme: dark)"><link rel="icon" type="image/svg+xml" href="/yun.svg"><link rel="mask-icon" href="/yun.svg" color="#0078E7"><link rel="preload" href="/css/hexo-theme-yun.css" as="style"><link rel="preload" href="/js/utils.js" as="script"><link rel="preload" href="/js/hexo-theme-yun.js" as="script"><link rel="prefetch" href="/js/sidebar.js" as="script"><link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin><script id="yun-config">
+    const Yun = window.Yun || {};
+    window.CONFIG = {"hostname":"www.yunyoujun.cn","root":"/","title":"云游君的小站","version":"1.7.0","mode":"auto","copycode":true,"page":{"isPost":true},"i18n":{"placeholder":"搜索...","empty":"找不到您查询的内容: ${query}","hits":"找到 ${hits} 条结果","hits_time":"找到 ${hits} 条结果（用时 ${time} 毫秒）"},"anonymous_image":"https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/avatar/none.jpg","say":{"api":"https://el-bot-api.vercel.app/api/words/young"},"algolia":{"appID":"CJXXAGRCYN","apiKey":"ae1966d2aeab22bf9335679f45d2cd9a","indexName":"my-hexo-blog","hits":{"per_page":8}},"fireworks":{"colors":["102, 167, 221","62, 131, 225","33, 78, 194"]}};
+  </script><link rel="stylesheet" href="/css/hexo-theme-yun.css"><script src="/js/utils.js"></script><script src="/js/hexo-theme-yun.js"></script><link rel="alternate" href="/atom.xml" title="云游君的小站" type="application/atom+xml"><link rel="preconnect" href="https://www.google-analytics.com" crossorigin><script async src="https://www.googletagmanager.com/gtag/js?id=G-1LL0D86CY9"></script><script>if (CONFIG.hostname === location.hostname) {
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-1LL0D86CY9');
+}</script><script data-ad-client="ca-pub-2245427233262012" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(function(){
+  var bp = document.createElement('script');
+  var curProtocol = window.location.protocol.split(':')[0];
+  if (curProtocol === 'https') {
+    bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+  }
+  else {
+    bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+  }
+  var s = document.getElementsByTagName("script")[0];
+  s.parentNode.insertBefore(bp, s);
+})();</script><!-- Google Tag Manager --><script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-M9KWR9L');</script><!-- End Google Tag Manager --><meta name="description" content="如何实现一个徽章惯性旋转动画？  标题我只能说：懂得都懂。如何评价「懂的都懂」这句话？｜知乎  前言距离上一次写技术文章过去了多久呢？大概已经屈指不可数了。与此前相比，无论心境还是境遇也都变化了许多，而我本打算记录的实习生涯还未动笔，便已接近尾声。但愿还有机会一叙。 在家中慵懒地躺了数日，自觉不应继续如此，方翻了个身，决定将此文修整完，以略表奋发之意。总之，也由衷地希望大家能从中学习到什么或是给我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="旋转吧！徽章！">
+<meta property="og:url" content="https://www.yunyoujun.cn/posts/how-to-realize-badge-rotation/index.html">
+<meta property="og:site_name" content="云游君的小站">
+<meta property="og:description" content="如何实现一个徽章惯性旋转动画？  标题我只能说：懂得都懂。如何评价「懂的都懂」这句话？｜知乎  前言距离上一次写技术文章过去了多久呢？大概已经屈指不可数了。与此前相比，无论心境还是境遇也都变化了许多，而我本打算记录的实习生涯还未动笔，便已接近尾声。但愿还有机会一叙。 在家中慵懒地躺了数日，自觉不应继续如此，方翻了个身，决定将此文修整完，以略表奋发之意。总之，也由衷地希望大家能从中学习到什么或是给我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://upyun.yunyoujun.cn/images/badge-rotate-to-middle.jpg">
+<meta property="article:published_time" content="2021-09-05T13:46:11.000Z">
+<meta property="article:modified_time" content="2021-09-19T13:46:11.000Z">
+<meta property="article:author" content="云游君">
+<meta property="article:tag" content="动画">
+<meta property="article:tag" content="蚂蚁森林">
+<meta property="article:tag" content="徽章">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://upyun.yunyoujun.cn/images/badge-rotate-to-middle.jpg"><script src="/js/ui/mode.js"></script></head><body><script defer src="https://cdn.jsdelivr.net/npm/animejs@latest"></script><script defer src="/js/ui/fireworks.js"></script><canvas class="fireworks"></canvas><div class="container"><a class="sidebar-toggle hty-icon-button" id="menu-btn"><div class="hamburger hamburger--spin" type="button"><span class="hamburger-box"><span class="hamburger-inner"></span></span></div></a><div class="sidebar-toggle sidebar-overlay"></div><aside class="sidebar"><script src="/js/sidebar.js"></script><ul class="sidebar-nav"><li class="sidebar-nav-item sidebar-nav-toc hty-icon-button sidebar-nav-active" data-target="post-toc-wrap" title="文章目录"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-list-ordered"></use></svg></li><li class="sidebar-nav-item sidebar-nav-overview hty-icon-button" data-target="site-overview-wrap" title="站点概览"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-passport-line"></use></svg></li></ul><div class="sidebar-panel" id="site-overview-wrap"><div class="site-info fix-top"><a class="site-author-avatar" href="/about/" title="云游君"><img width="96" loading="lazy" src="/images/avatar.jpg" alt="云游君"><span class="site-author-status" title="Looking for dawn.">🌑</span></a><div class="site-author-name"><a href="/about/">云游君</a></div><a class="site-name" href="/about/site.html">云游君的小站</a><sub class="site-subtitle">All at sea.</sub><div class="site-desciption">希望能成为一个有趣的人</div></div><nav class="site-state"><a class="site-state-item hty-icon-button icon-home" href="/" title="首页"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-home-4-line"></use></svg></span></a><div class="site-state-item"><a href="/archives/" title="归档"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-archive-line"></use></svg></span><span class="site-state-item-count">84</span></a></div><div class="site-state-item"><a href="/categories/" title="分类"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-2-line"></use></svg></span><span class="site-state-item-count">16</span></a></div><div class="site-state-item"><a href="/tags/" title="标签"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="site-state-item-count">88</span></a></div><a class="site-state-item hty-icon-button" href="/about/#comment" title="留言板"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-clipboard-line"></use></svg></span></a></nav><hr style="margin-bottom:0.5rem"><div class="links-of-author"><a class="links-of-author-item hty-icon-button" rel="noopener" href="/atom.xml" title="RSS" target="_blank" style="color:orange"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-rss-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://qm.qq.com/cgi-bin/qm/qr?k=kZJzggTTCf4SpvEQ8lXWoi5ZjhAx0ILZ&amp;jump_from=webapi" title="QQ 群 1050458482" target="_blank" style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://github.com/YunYouJun" title="GitHub" target="_blank" style="color:#6e5494"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-github-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://weibo.com/jizhideyunyoujun" title="微博" target="_blank" style="color:#E6162D"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-weibo-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.douban.com/people/yunyoujun/" title="豆瓣" target="_blank" style="color:#007722"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-douban-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://music.163.com/#/user/home?id=247102977" title="网易云音乐" target="_blank" style="color:#C20C0C"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-netease-cloud-music-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://www.zhihu.com/people/yunyoujun/" title="知乎" target="_blank" style="color:#0084FF"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-zhihu-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://space.bilibili.com/1579790" title="哔哩哔哩" target="_blank" style="color:#FF8EB3"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-bilibili-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/about/white-qrcode-and-search.jpg" title="微信公众号" target="_blank" style="color:#1AAD19"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-2-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://twitter.com/YunYouJun" title="Twitter" target="_blank" style="color:#1da1f2"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-twitter-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://t.me/elpsycn" title="Telegram Channel" target="_blank" style="color:#0088CC"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-telegram-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="mailto:me@yunyoujun.cn" title="E-Mail" target="_blank" style="color:#8E71C1"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-mail-line"></use></svg></a><a class="links-of-author-item hty-icon-button" rel="noopener" href="https://travellings.link" title="Travelling" target="_blank" style="color:var(--hty-text-color)"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-train-line"></use></svg></a></div><hr style="margin:0.5rem 1rem"><div class="links"><a class="links-item hty-icon-button" href="/links/" title="我的小伙伴们" style="color:dodgerblue"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-genderless-line"></use></svg></a><a class="links-item hty-icon-button" href="/girls/" title="喜欢的女孩子" style="color:hotpink"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-women-line"></use></svg></a></div><br><a class="links-item hty-icon-button" id="toggle-mode-btn" href="javascript:;" title="Mode" style="color: #f1cb64"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-contrast-2-line"></use></svg></a></div><div class="sidebar-panel sidebar-panel-active" id="post-toc-wrap"><div class="post-toc"><div class="post-toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%89%8D%E8%A8%80"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E4%BB%8B"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%95%BF%E5%95%A5%E6%A0%B7"><span class="toc-number">3.</span> <span class="toc-text">长啥样</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">我的实现方案</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8B%96%E5%8A%A8%E5%BE%BD%E7%AB%A0%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">如何拖动徽章？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90%E5%8A%A8%E7%94%BB"><span class="toc-number">4.2.</span> <span class="toc-text">分析动画</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%A6%E7%BB%86%E6%AD%A5%E9%AA%A4"><span class="toc-number">5.</span> <span class="toc-text">详细步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%9D%E9%80%9F%E5%BA%A6"><span class="toc-number">5.1.</span> <span class="toc-text">初速度</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BE%BD%E7%AB%A0%E6%97%8B%E8%BD%AC%E8%A1%B0%E5%87%8F"><span class="toc-number">5.2.</span> <span class="toc-text">徽章旋转衰减</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E9%9D%A2%E9%87%8D%E5%8A%9B"><span class="toc-number">5.3.</span> <span class="toc-text">平面重力</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%81%9C%E6%AD%A2"><span class="toc-number">5.4.</span> <span class="toc-text">如何停止</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%BD%E8%B1%A1%E5%87%BD%E6%95%B0"><span class="toc-number">5.5.</span> <span class="toc-text">抽象函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E5%A4%8D%E7%94%A8"><span class="toc-number">5.6.</span> <span class="toc-text">可复用</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9C%80%E5%90%8E%E4%B8%80%E5%85%AC%E9%87%8C"><span class="toc-number">5.7.</span> <span class="toc-text">最后一公里</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9D%E5%A7%8B%E6%99%83%E5%8A%A8%E6%95%88%E6%9E%9C"><span class="toc-number">5.7.1.</span> <span class="toc-text">初始晃动效果</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BD%BB%E6%8B%8D%E6%99%83%E5%8A%A8"><span class="toc-number">5.7.2.</span> <span class="toc-text">轻拍晃动</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%99%80%E8%9E%BA%E4%BB%AA"><span class="toc-number">5.7.3.</span> <span class="toc-text">陀螺仪</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-number">6.</span> <span class="toc-text">总结</span></a></li></ol></div></div></div></aside><main class="sidebar-translate" id="content"><div id="post"><article class="hty-card post-block" itemscope itemtype="https://schema.org/Article"><link itemprop="mainEntityOfPage" href="https://www.yunyoujun.cn/posts/how-to-realize-badge-rotation/"><span hidden itemprop="author" itemscope itemtype="https://schema.org/Person"><meta itemprop="name" content="云游君"><meta itemprop="description"></span><span hidden itemprop="publisher" itemscope itemtype="https://schema.org/Organization"><meta itemprop="name" content="云游君的小站"></span><header class="post-header"><h1 class="post-title" itemprop="name headline">旋转吧！徽章！<a class="post-edit-link" href="https://github.com/YunYouJun/yunyoujun.github.io/tree/hexo/source/_posts/posts/how-to-realize-badge-rotation.md" target="_blank" title="编辑" rel="noopener"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-edit-line"></use></svg></a></h1><div class="post-meta"><div class="post-time" style="display:block"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-line"></use></svg></span> <time title="创建时间：2021-09-05 21:46:11" itemprop="dateCreated datePublished" datetime="2021-09-05T21:46:11+08:00">2021-09-05</time><span class="post-meta-divider">-</span><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-calendar-2-line"></use></svg></span> <time title="修改时间：2021-09-19 21:46:11" itemprop="dateModified" datetime="2021-09-19T21:46:11+08:00">2021-09-19</time></div><span class="post-count"><span class="post-symbolcount"><span class="post-meta-item-icon" title="本文字数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-file-word-line"></use></svg></span> <span title="本文字数">3.5k</span><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读时长"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-timer-line"></use></svg></span> <span title="阅读时长">12m</span></span></span><span class="leancloud_visitors" id="/posts/how-to-realize-badge-rotation/" data-flag-title="旋转吧！徽章！"><span class="post-meta-divider">-</span><span class="post-meta-item-icon" title="阅读次数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-eye-line"></use></svg> <span class="leancloud-visitors-count"></span></span></span><span class="post-meta-divider">-</span><a href="#comment"><span class="post-meta-item-icon" title="评论数"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-chat-3-line"></use></svg> <span class="waline-comment-count" id="/posts/how-to-realize-badge-rotation/"></span></span></a><div class="post-classify"><span class="post-category"> <span class="post-meta-item-icon" style="margin-right:3px;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-folder-line"></use></svg></span><span itemprop="about" itemscope itemtype="https://schema.org/Thing"><a class="category-item" href="/categories/%E4%BA%91%E6%B8%B8%E7%9A%84%E5%B0%8F%E7%AC%94%E8%AE%B0/" style="--text-color:var(--hty-text-color)" itemprop="url" rel="index"><span itemprop="text">云游的小笔记</span></a></span></span><span class="post-tag"><span class="post-meta-divider">-</span><a class="tag-item" href="/tags/%E5%8A%A8%E7%94%BB/" style="--text-color:crimson"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">动画</span></a><a class="tag-item" href="/tags/%E8%9A%82%E8%9A%81%E6%A3%AE%E6%9E%97/" style="--text-color:#54a892"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">蚂蚁森林</span></a><a class="tag-item" href="/tags/%E5%BE%BD%E7%AB%A0/" style="--text-color:var(--hty-text-color)"><span class="post-meta-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-price-tag-3-line"></use></svg></span><span class="tag-name">徽章</span></a></span></div></div></header><section class="post-body" itemprop="articleBody"><div class="post-content markdown-body" style="--smc-primary:#0078E7;"><p>如何实现一个徽章惯性旋转动画？</p>
+<blockquote>
+<p>标题我只能说：懂得都懂。<a target="_blank" rel="noopener" href="https://www.zhihu.com/question/393670234">如何评价「懂的都懂」这句话？｜知乎</a></p>
+</blockquote>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>距离上一次写技术文章过去了多久呢？大概已经屈指不可数了。<br>与此前相比，无论心境还是境遇也都变化了许多，而我本打算记录的实习生涯还未动笔，便已接近尾声。但愿还有机会一叙。</p>
+<p>在家中慵懒地躺了数日，自觉不应继续如此，方翻了个身，决定将此文修整完，以略表奋发之意。<br>总之，也由衷地希望大家能从中学习到什么或是给我一些更好的改进建议。</p>
+<p>那么，……，先旋转起来吧？</p>
+<span id="more"></span>
+
+<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>本篇文章原本来自于写「🐜 蚂蚁 🌲 森林 🐒 神奇动物」徽章动画时总结的技术分享，考虑到各种因素，已去除了敏感资源。<br>并编写了更为抽象（<del>高内聚、低耦合</del>）的代码作为示例。</p>
+<ul>
+<li>示例（去除敏感资源）：<a target="_blank" rel="noopener" href="https://explosions.yunyoujun.cn/badge-rotation/">https://explosions.yunyoujun.cn/badge-rotation/</a></li>
+<li>PPT (slidev): <a target="_blank" rel="noopener" href="https://badge-rotation.explosions.yunyoujun.cn/">https://badge-rotation.explosions.yunyoujun.cn/</a><ul>
+<li>一份大致技术流程的分享 Slide</li>
+</ul>
+</li>
+<li>简化后可以参考的代码：<a target="_blank" rel="noopener" href="https://github.com/YunYouJun/explosions/blob/main/src/pages/badge-rotation/">https://github.com/YunYouJun/explosions/blob/main/src/pages/badge-rotation/</a></li>
+</ul>
+<p><del>这也是我离开腾讯后，前去蚂蚁实习做的第一个项目。</del></p>
+<h2 id="长啥样"><a href="#长啥样" class="headerlink" title="长啥样"></a>长啥样</h2><p>那么首先，我们来看看这个动画的效果。</p>
+<div class="success">
+
+<blockquote>
+<p>进入 「蚂蚁森林」 左上角 - 点击发现神奇物种（继续点左上角）</p>
+</blockquote>
+</div>
+
+<p><video src="https://upyun.yunyoujun.cn/videos/demo/ant-forest-animal-badge-rotation.mp4" alt="徽章旋转" controls></video></p>
+<blockquote>
+<p>那么我实现了什么？</p>
+</blockquote>
+<ul>
+<li>拖动 3D 徽章</li>
+<li>根据拖动速度展现的惯性动画</li>
+<li>停止时总是停留在正/反面</li>
+<li>进入时的晃动动画</li>
+<li>轻拍晃动效果 👏</li>
+<li>陀螺仪效果（晃动手机） 📱</li>
+</ul>
+<p>尽管这是一个简单的效果，但也同样有着一些细节和需要注意的问题。<br>接下来将主要就我选取的实现方案和遇到的问题进行分享。</p>
+<p>顺便放一个简单的示例（可以直接拖动哦～）：</p>
+<iframe style="height: 85vh" src="https://explosions.yunyoujun.cn/badge-rotation"></iframe>
+
+<h2 id="我的实现方案"><a href="#我的实现方案" class="headerlink" title="我的实现方案"></a>我的实现方案</h2><p>我们的首要任务是实现拖动徽章，松开手后的惯性动画。</p>
+<p>而神奇动物中的徽章使用 tiny3d（蚂蚁开源的一个 3D 渲染库 <a target="_blank" rel="noopener" href="http://tinyjs.net/">tiny</a> + tiny-plugin-three） 在 canvas 上渲染的 3D 模型。我们只需要按照帧率改变徽章的旋转角度使其形成动画即可。</p>
+<blockquote>
+<p>你问我为什么不用 Three.js？懂得都懂。<br>当然 Three.js 较大，且业务可能存在很多定制需求，这也是一部分原因。</p>
+</blockquote>
+<h3 id="如何拖动徽章？"><a href="#如何拖动徽章？" class="headerlink" title="如何拖动徽章？"></a>如何拖动徽章？</h3><p>首先，我们至少要保证徽章是可拖动的。<br>那么我们只需要计算屏幕触摸点横向移动的差值（delta X），按比例赋值给徽章饶 Y 轴旋转的角度（欧拉角 y）。</p>
+<blockquote>
+<p>So easy? 此时还基本无需考虑动画的问题。因为手指移动是连续的，旋转就是连续的。</p>
+</blockquote>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">const</span> deltaX <span class="token operator">=</span> curPos<span class="token punctuation">.</span>x <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lastPos<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+model<span class="token punctuation">.</span>eulerAngles<span class="token punctuation">.</span>y <span class="token operator">+=</span> deltaX<span class="token punctuation">;</span></code></pre>
+
+<blockquote>
+<p>setInterval VS setTimeout VS requestAnimationFrame</p>
+</blockquote>
+<p>当我们的滑动停止后，徽章仍继续转动，这意味着这应当是一个动画。<br>在实现动画之前，我们先来考虑一下动画的机制。</p>
+<blockquote>
+<p>屏幕的渲染帧率通常是：60fps</p>
+</blockquote>
+<div class="warning">
+
+<blockquote>
+<p>但实际上这里还有个坑，iOS 省电模式下会降低帧率，导致不同情况下表现不一致。反而不如使用 <code>setInterval</code> 替代 <code>requestAnimationFrame</code>。<br>不过如果你业余写的小玩具用户量并没有达到蚂蚁森林的千万级别，也许还并不需要花心思考虑这些。更简洁才更优雅。</p>
+</blockquote>
+</div>
+
+<p>定时函数 setTimeout(callback, 16) （设置为每 16 ms 执行一次），便可以达到类似的效果。<br>但是我们还有更为优雅的方式，<a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame">requestAnimationFrame</a>。</p>
+<div class="info">
+
+<blockquote>
+<p>你准备更新动画时你应该调用此方法。这将使浏览器在下一次重绘之前调用你传入给该方法的动画函数(即你的回调函数)。<br>回调函数执行次数通常是每秒 60 次，与浏览器屏幕刷新次数相匹配。</p>
+</blockquote>
+</div>
+
+<h3 id="分析动画"><a href="#分析动画" class="headerlink" title="分析动画"></a>分析动画</h3><p>接下来，我们对动画的状态进行一下分解。</p>
+<ul>
+<li>拖动徽章（此时无需考虑动画、但要避免拖动与惯性动画冲突）</li>
+<li>手离开屏幕，徽章旋转速度逐渐衰减（需要得知初速度）</li>
+<li>最终总是停留在正面或是反面（在平面上的不同区间赋予对应方向的加速度）</li>
+</ul>
+<p>🤔，可能简短的文字难以描述清楚，我们来看一下具体的实现步骤。</p>
+<h2 id="详细步骤"><a href="#详细步骤" class="headerlink" title="详细步骤"></a>详细步骤</h2><p>事实上，我们将其抽象理解为物理世界中的速度，最后再根据不同阶段计算得出的速度，去算出对应旋转的角度，在每帧渲染时赋值给徽章即可。</p>
+<h3 id="初速度"><a href="#初速度" class="headerlink" title="初速度"></a>初速度</h3><p>惯性动画，意味着徽章本身结束动应当有一个初速度。</p>
+<div class="info">
+
+<blockquote>
+<p>牛顿三大定律-第一定律：假若施加于某物体的外力为零，则该物体的运动速度不变（惯性定律）</p>
+</blockquote>
+</div>
+
+<p>好吧，其实和惯性定律关系不大。（<del>我只是想放个定律在这里显得高大上一点。</del>）<br>简而言之，我们可以在拖动结束时，即监听 <code>touchEnd</code> 时间时赋予徽章一个初速度。</p>
+<p>而该初速度可通过手指在屏幕上横向滑动的距离与滑动时间的比值计算而得。</p>
+<p>$$ v = \frac{\Delta x}{\Delta t} $$</p>
+<blockquote>
+<p>Talk is cheap, show me your code.</p>
+</blockquote>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 创建动画实例，具体实现见后文</span>
+<span class="token keyword">const</span> inertiaAnimation <span class="token operator">=</span> <span class="token function">createInertiaAnimation</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span><span class="token operator">...</span><span class="token punctuation">&#125;</span><span class="token punctuation">)</span>
+
+<span class="token comment">// 滑动距离</span>
+<span class="token keyword">const</span> deltaX <span class="token operator">=</span>
+  e<span class="token punctuation">.</span>changedTouches<span class="token punctuation">[</span><span class="token number">0</span><span class="token punctuation">]</span><span class="token punctuation">.</span>clientX <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>prePos<span class="token punctuation">.</span>x<span class="token punctuation">;</span>
+
+<span class="token keyword">const</span> touchEndTime <span class="token operator">=</span> <span class="token keyword">new</span> <span class="token class-name">Date</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">.</span><span class="token function">valueOf</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token comment">// 滑动时间</span>
+<span class="token keyword">const</span> deltaTime <span class="token operator">=</span> touchEndTime <span class="token operator">-</span> touchStartTime<span class="token punctuation">;</span>
+
+<span class="token comment">/**
+ * 初始速度，每 ms 旋转速度（设顺时针为正数）
+ * deltaX &lt;= 0 为顺时针
+ */</span>
+<span class="token keyword">let</span> speed <span class="token operator">=</span> <span class="token operator">-</span> deltaX <span class="token operator">/</span> deltaTime<span class="token punctuation">;</span>
+
+<span class="token comment">// 将速度赋予动画实例，播放动画</span>
+inertiaAnimation<span class="token punctuation">.</span>playAnimation <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+inertiaAnimation<span class="token punctuation">.</span>speed <span class="token operator">=</span> speed<span class="token punctuation">;</span>
+inertiaAnimation<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+<h3 id="徽章旋转衰减"><a href="#徽章旋转衰减" class="headerlink" title="徽章旋转衰减"></a>徽章旋转衰减</h3><p>根据有限的中学物理知识，我们可以有两种方案来模拟衰减。</p>
+<ul>
+<li>方案 1: 模拟物理重力，使用加速度来计算速度</li>
+<li>方案 2: 模拟摩擦力，采用摩擦系数一样的衰减系数</li>
+</ul>
+<p>我决定采用 <code>方案 2</code>，其更简便、更符合逻辑。<br>譬如，当速度变为相反方向（徽章反着转）这时无需考虑数值的正反，只需乘以衰减系数即可。<br>此外，加速度模式在之后模拟水平方向上的重力会用到，可以避免两边的逻辑混杂在一起，难以编写。</p>
+<p>在经过尝试后，我决定将每帧的衰减系数设定为 0.95。</p>
+<blockquote>
+<p><code>u: 0.95</code></p>
+</blockquote>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">/**
+ * 每一步动画
+ * @param &#123;number&#125; timestamp
+ */</span>
+<span class="token keyword">function</span> <span class="token function">step</span><span class="token punctuation">(</span>timestamp<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token operator">...</span>
+  speed <span class="token operator">*=</span> u<span class="token punctuation">;</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="平面重力"><a href="#平面重力" class="headerlink" title="平面重力"></a>平面重力</h3><p>速度衰减，意味着徽章最后可能停止在任意角度。但这并不是我们想要的，我们希望它能总是保持正/反面。</p>
+<p><img src="https://upyun.yunyoujun.cn/images/badge-rotate-to-middle.jpg" alt="旋转到一半停了" loading="lazy"></p>
+<p>同样我们可以从物理角度进行思考，在水平面施加一个「重力」，使其总是保持正/反面。<br>这个重力（加速度）在徽章的左右区间正负是不一样的。</p>
+<blockquote>
+<p>假设从徽章顶部看，顺时针方向为正 ，同时我们可以划分为四个区间。</p>
+</blockquote>
+<p>随后从屏幕看向徽章：（徽章的左半部分，且处于靠近屏幕外的位置时，简称为 左半外。）</p>
+<table>
+<thead>
+<tr>
+<th>重力范围</th>
+<th>加速度方向</th>
+<th>数值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>左半外</td>
+<td>加速度向屏幕内</td>
+<td>+</td>
+</tr>
+<tr>
+<td>左半内</td>
+<td>加速度向屏幕外</td>
+<td>-</td>
+</tr>
+<tr>
+<td>右半外</td>
+<td>加速度向屏幕内</td>
+<td>-</td>
+</tr>
+<tr>
+<td>右半内</td>
+<td>加速度向屏幕外</td>
+<td>+</td>
+</tr>
+</tbody></table>
+<p>同时我们需要做一些细节的处理，比如旋转角度大于 180 的时候，负数的时候。<br>最后给不同旋转区间的角度时的徽章速度赋予不同的加速度。</p>
+<blockquote>
+<p>经过尝试后，我决定将水平重力影响系数设置为 0.008。<code>gravity: 0.008</code></p>
+</blockquote>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 一些乱七八糟的取余处理（因为会大于 180 嘛）</span>
+<span class="token keyword">const</span> remainder <span class="token operator">=</span> <span class="token function">getRotation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">%</span> <span class="token number">180</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> positiveRemainder <span class="token operator">=</span> remainder <span class="token operator">&lt;</span> <span class="token number">0</span> <span class="token operator">?</span> remainder <span class="token operator">+</span> <span class="token number">180</span> <span class="token operator">:</span> remainder<span class="token punctuation">;</span>
+
+<span class="token keyword">if</span> <span class="token punctuation">(</span>positiveRemainder <span class="token operator">>=</span> <span class="token number">90</span> <span class="token operator">&amp;&amp;</span> positiveRemainder <span class="token operator">&lt;</span> <span class="token number">180</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  speed <span class="token operator">-=</span> gravity<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token keyword">if</span> <span class="token punctuation">(</span>positiveRemainder <span class="token operator">></span> <span class="token number">0</span> <span class="token operator">&amp;&amp;</span> positiveRemainder <span class="token operator">&lt;</span> <span class="token number">90</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  speed <span class="token operator">+=</span> gravity<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="如何停止"><a href="#如何停止" class="headerlink" title="如何停止"></a>如何停止</h3><p>速度配合水平面的重力加速度，并根据衰减系数逐渐衰减，数字尽管越来越小，但其仍旧是浮点数。</p>
+<blockquote>
+<p>正所谓，「日取其半，万世不竭」。——《庄子》</p>
+</blockquote>
+<p>因此我们需要明确徽章趋近于静止时的一个界限（可以被忽略的参数大小）。</p>
+<ul>
+<li><code>toleratedSpeed</code>: 0.001 可以被忽略的速度</li>
+<li><code>toleratedAngle</code>: 5 可以被忽略的角度</li>
+</ul>
+<p>此外，拖拽时会与加速度动画、以及后续的陀螺仪动画产生冲突，我们需要通过状态来使得他们互相独立。</p>
+<p><code>_this.playAnimation</code> 是否允许播放动画（外部可修改，来决定是否允许播放动画）<br><code>_this.isPlaying</code> 记录状态，是否正在播放动画（仅用来记录内部是否正在播放的状态）</p>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">function</span> <span class="token function">step</span><span class="token punctuation">(</span>timestamp<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">// 继续播放动画的条件（需要避免和后续的陀螺仪/拖动等冲突）</span>
+  <span class="token keyword">if</span> <span class="token punctuation">(</span>
+    _this<span class="token punctuation">.</span>playAnimation <span class="token operator">&amp;&amp;</span>
+    <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>speed<span class="token punctuation">)</span> <span class="token operator">></span> toleratedSpeed <span class="token operator">||</span>
+      <span class="token punctuation">(</span>positiveRemainder <span class="token operator">></span> toleratedAngel
+      <span class="token operator">&amp;&amp;</span> positiveRemainder <span class="token operator">&lt;</span> <span class="token number">180</span> <span class="token operator">-</span> toleratedAngel<span class="token punctuation">)</span><span class="token punctuation">)</span>
+  <span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token comment">// 记录是否正在播放动画</span>
+    _this<span class="token punctuation">.</span>isPlaying <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+
+    <span class="token operator">...</span>
+    <span class="token comment">// 根据时间和速度，计算每一帧徽章应该旋转的角度</span>
+    <span class="token keyword">const</span> deltaRotation <span class="token operator">=</span> speed <span class="token operator">*</span> elapsed<span class="token punctuation">;</span>
+    <span class="token function">setRotation</span><span class="token punctuation">(</span>deltaRotation<span class="token punctuation">)</span><span class="token punctuation">;</span>
+    <span class="token operator">...</span>
+    <span class="token comment">// 继续播放动画</span>
+    window<span class="token punctuation">.</span><span class="token function">requestAnimationFrame</span><span class="token punctuation">(</span>step<span class="token punctuation">)</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span> <span class="token keyword">else</span> <span class="token punctuation">&#123;</span>
+    _this<span class="token punctuation">.</span>isPlaying <span class="token operator">=</span> <span class="token boolean">false</span><span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="抽象函数"><a href="#抽象函数" class="headerlink" title="抽象函数"></a>抽象函数</h3><p>到这里，功能便实现的差不多了，但我们仍旧可以对代码进一步进行优化。</p>
+<ul>
+<li>使用 TypeScript 编写（增强类型提示）</li>
+<li>抽象出可配置的参数</li>
+<li>函数内部默认提供默认参数</li>
+</ul>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">export</span> <span class="token keyword">interface</span> <span class="token class-name">InertiaAnimationOptions</span> <span class="token punctuation">&#123;</span>
+  <span class="token comment">/**
+   * 初速度
+   */</span>
+  speed<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  <span class="token comment">/**
+   * 水平重力影响系数
+   */</span>
+  gravity<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  <span class="token comment">/**
+   * 衰减系数
+   */</span>
+  u<span class="token operator">?</span><span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  <span class="token comment">/**
+   * 最后可忽略的速度
+   */</span>
+  toleratedSpeed<span class="token operator">?</span><span class="token operator">:</span> <span class="token number">0.0005</span><span class="token punctuation">;</span>
+  <span class="token comment">/**
+   * 最后可忽略的角度
+   */</span>
+  toleratedAngel<span class="token operator">?</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">;</span>
+  <span class="token comment">/**
+   * 获取旋转角度
+   */</span>
+  getRotation<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token builtin">number</span><span class="token punctuation">;</span>
+  <span class="token comment">/**
+   * 设置旋转角度
+   */</span>
+  setRotation<span class="token operator">?</span><span class="token operator">:</span> <span class="token punctuation">(</span>deltaRotation<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token keyword">void</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<ul>
+<li>函数式而非 Class（有一定争议，但 react 后来的 hooks 和 vue 的 createXXX 很明显都更加青睐函数）<ul>
+<li><code>createInertiaAnimation</code></li>
+</ul>
+</li>
+</ul>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">/**
+ * 创建旋转惯性动画
+ *
+ * @param &#123;*&#125; options
+ * @param &#123;Function&#125; callback 回调函数 设置状态
+ */</span>
+<span class="token keyword">export</span> <span class="token keyword">function</span> <span class="token function">createInertiaAnimation</span><span class="token punctuation">(</span>
+  options<span class="token operator">:</span> InertiaAnimationOptions
+<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">return</span> <span class="token punctuation">&#123;</span>
+    <span class="token operator">...</span>
+  <span class="token punctuation">&#125;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<h3 id="可复用"><a href="#可复用" class="headerlink" title="可复用"></a>可复用</h3><p>还有什么可以优化的点？<br>此处动画的应用场景是 3D 模型，但倘若是换为图片、DOM？</p>
+<blockquote>
+<p>譬如 CSS 编写而成的立体徽章，CSS 原教旨主义<br>示例：<a target="_blank" rel="noopener" href="https://explosions.yunyoujun.cn/badge-rotation/">https://explosions.yunyoujun.cn/badge-rotation/</a><br>使用 TypeScript + VueUse + CSS + createInertiaAnimation 搭建，顺便给 Vususe 中 swipe 缺失的 <code>touchcancel</code> 事件提了个 PR。</p>
+</blockquote>
+<p>我们还可以进一步解耦，允许用户（开发者）可以任意自定义旋转方式。<br>暴露两个可以控制 rotation 的方法。</p>
+<ul>
+<li><code>setRotation</code>: 设置旋转角度 <code>transform: rotateY($&#123;val&#125;deg)</code></li>
+<li><code>getRotation</code>: 获取旋转角度 <code>getComputedStyle</code></li>
+</ul>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 创建动画实例</span>
+<span class="token keyword">const</span> inertiaAnimation <span class="token operator">=</span> <span class="token function">createInertiaAnimation</span><span class="token punctuation">(</span><span class="token punctuation">&#123;</span>
+  speed<span class="token operator">:</span> <span class="token number">0.2</span><span class="token punctuation">,</span>
+  <span class="token function">getRotation</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    <span class="token keyword">return</span> rotateY<span class="token punctuation">.</span>value<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+  <span class="token function">setRotation</span><span class="token punctuation">(</span>deltaRotation<span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+    rotateY<span class="token punctuation">.</span>value <span class="token operator">-=</span> deltaRotation<span class="token punctuation">;</span>
+  <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+<h3 id="最后一公里"><a href="#最后一公里" class="headerlink" title="最后一公里"></a>最后一公里</h3><p>事实上，交给我的徽章动画工作的确到这里就结束了。<br>但是真的结束了吗？我们还可以自己尝试继续加一点点优化，细节决定成败。</p>
+<h4 id="初始晃动效果"><a href="#初始晃动效果" class="headerlink" title="初始晃动效果"></a>初始晃动效果</h4><blockquote>
+<p>用户打开徽章时，进行缓动，让用户知道它是可拖动的。此外这可以和此后的惯性动画共用一个实例，仅需赋予一个开始的初速度，即可快速实现。（也体现了此前优化封装的好处）</p>
+</blockquote>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">const</span> inertiaAnimation <span class="token operator">=</span> <span class="token function">createInertiaAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token operator">...</span>
+game<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span>options<span class="token punctuation">,</span> <span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  inertiaAnimation<span class="token punctuation">.</span>playAnimation <span class="token operator">=</span> <span class="token boolean">true</span><span class="token punctuation">;</span>
+  <span class="token comment">// 赋予一个微小的初速度，并播放动画</span>
+  inertiaAnimation<span class="token punctuation">.</span>speed <span class="token operator">=</span> <span class="token number">0.2</span><span class="token punctuation">;</span>
+  inertiaAnimation<span class="token punctuation">.</span><span class="token function">run</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">)</span></code></pre>
+
+<h4 id="轻拍晃动"><a href="#轻拍晃动" class="headerlink" title="轻拍晃动"></a>轻拍晃动</h4><blockquote>
+<p>原本的初速度是根据移动距离和时间计算的，那么用户仅仅想拍一下徽章呢？<br>这时没有反馈是不大好的，且较小数值的移动距离和时间，容易出现边界计算的问题。<br>当移动距离和时间小于一定数值时触发，并判断为左侧还是右侧。（同样公用一个动画实例，仅需赋予一个初速度，即可快速实现。）</p>
+</blockquote>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token comment">// 轻拍</span>
+<span class="token keyword">const</span> tapSpeed <span class="token operator">=</span> <span class="token number">0.3</span><span class="token punctuation">;</span>
+<span class="token keyword">if</span> <span class="token punctuation">(</span>Math<span class="token punctuation">.</span><span class="token function">abs</span><span class="token punctuation">(</span>deltaX<span class="token punctuation">)</span> <span class="token operator">&lt;</span> <span class="token number">5</span> <span class="token operator">&amp;&amp;</span> deltaTime <span class="token operator">&lt;</span> <span class="token number">200</span><span class="token punctuation">)</span> <span class="token punctuation">&#123;</span>
+  <span class="token keyword">const</span> pageWidth <span class="token operator">=</span> document<span class="token punctuation">.</span>documentElement<span class="token punctuation">.</span>clientWidth<span class="token punctuation">;</span>
+  speed <span class="token operator">=</span> <span class="token keyword">this</span><span class="token punctuation">.</span>prePos<span class="token punctuation">.</span>x <span class="token operator">></span> pageWidth <span class="token operator">/</span> <span class="token number">2</span> <span class="token operator">?</span> <span class="token operator">-</span>tapSpeed <span class="token operator">:</span> tapSpeed<span class="token punctuation">;</span>
+<span class="token punctuation">&#125;</span></code></pre>
+
+<h4 id="陀螺仪"><a href="#陀螺仪" class="headerlink" title="陀螺仪"></a>陀螺仪</h4><blockquote>
+<p>用户微微晃动手机，徽章总是面向用户，也是增强体验不错的方式。<br>但也存在一些小问题… 🐛</p>
+</blockquote>
+<ul>
+<li>与惯性动画冲突造成抖动<ul>
+<li>通过各类状态判断，当用户在拖动、仍在播放惯性动画时，陀螺仪效果不生效（与拖动和惯性动画之间的冲突处理逻辑类似）</li>
+</ul>
+</li>
+<li>陀螺仪因为用户初始拿的位置便具有数值（应当使用相对数值）</li>
+<li>超过 90 度会突变为负数 <code>90 -&gt; -89</code></li>
+<li>数值频率变化敏感<ul>
+<li>通过相对计算，并进行缓动，过大变化时舍去</li>
+</ul>
+</li>
+<li>网页 API <code>deviceorientation</code> iOS 兼容问题</li>
+</ul>
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript">window<span class="token punctuation">.</span><span class="token function">addEventListener</span><span class="token punctuation">(</span><span class="token string">"deviceorientation"</span><span class="token punctuation">,</span> <span class="token punctuation">(</span>event<span class="token punctuation">)</span> <span class="token operator">=></span> <span class="token punctuation">&#123;</span>
+  <span class="token operator">...</span>
+  <span class="token comment">// gamma: 从左到右</span>
+  <span class="token keyword">let</span> deltaGamma <span class="token operator">=</span> event<span class="token punctuation">.</span>gamma <span class="token operator">-</span> <span class="token keyword">this</span><span class="token punctuation">.</span>lastGamma<span class="token punctuation">;</span>
+  <span class="token operator">...</span>
+<span class="token punctuation">&#125;</span><span class="token punctuation">,</span> <span class="token boolean">true</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+<blockquote>
+<p>查询 <a target="_blank" rel="noopener" href="https://caniuse.com/mdn-api_deviceorientationevent">DeviceOrientationEvent API | Can I use</a> 其实可以发现 iOS 网页的这个事件有兼容问题。<br>平时只能自求多福了。（支付宝的话则可以调用其自身的原生 API）</p>
+</blockquote>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>至此，一个完整的徽章旋转动画，便算告一段落了。<br>后续，我们甚至还可以进一步将其封装为一个 npm 包 <a target="_blank" rel="noopener" href="https://www.npmjs.com/package/@explosions/badge-rotation"><code>@explosions/badge-rotation</code></a>，通过导入的方式来快速使用它。</p>
+<blockquote>
+<p>我在 npm 上建立了一个 <a target="_blank" rel="noopener" href="https://www.npmjs.com/settings/explosions/packages">explosions</a> 的 org，打算在这个 scope 下发些有趣的动效。<br>如果你也有些想法和兴趣，可以到<a target="_blank" rel="noopener" href="https://github.com/YunYouJun/explosions">这里</a>来点 PR 或 Issue。</p>
+</blockquote>
+<pre class="language-bash" data-language="bash"><code class="language-bash"><span class="token function">npm</span> <span class="token function">install</span> @explosions/badge-rotation</code></pre>
+
+<pre class="language-typescript" data-language="typescript"><code class="language-typescript"><span class="token keyword">import</span> <span class="token punctuation">&#123;</span> createInertiaAnimation <span class="token punctuation">&#125;</span> <span class="token keyword">from</span> <span class="token string">"@explosions/badge-rotation"</span><span class="token punctuation">;</span>
+<span class="token keyword">const</span> inertiaAnimation <span class="token operator">=</span> <span class="token function">createInertiaAnimation</span><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token punctuation">;</span></code></pre>
+
+<p>以上便是我在实现过程中的一些方案、问题与思考，从零开始去尝试如何实现是一件很有趣的事情，但想必也一定存在更优雅的方案和优化，所以有任何建议也欢迎给我留言。谢谢！</p>
+<p>下次再有什么有趣的事情时候见！</p>
+<hr>
+<p>Q.E.D.</p>
+</div><div id="reward-container"><span class="hty-icon-button button-glow" id="reward-button" title="打赏" onclick="var qr = document.getElementById(&quot;qr&quot;); qr.style.display = (qr.style.display === &quot;none&quot;) ? &quot;block&quot; : &quot;none&quot;;"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-hand-coin-line"></use></svg></span><div id="reward-comment">我很可爱，请给我钱</div><div id="qr" style="display:none;"><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/alipay-qrcode.jpg" alt="支付宝" title="支付宝"></a><div><span style="color:#00A3EE"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-alipay-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/qqpay-qrcode.png" alt="QQ 支付" title="QQ 支付"></a><div><span style="color:#12B7F5"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-qq-line"></use></svg></span></div></div><div style="display:inline-block"><a target="_blank" rel="noopener" href="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg"><img loading="lazy" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/donate/wechatpay-qrcode.jpg" alt="微信支付" title="微信支付"></a><div><span style="color:#2DC100"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-wechat-pay-line"></use></svg></span></div></div></div></div><ul class="post-copyright"><li class="post-copyright-author"><strong>本文作者：</strong>云游君</li><li class="post-copyright-link"><strong>本文链接：</strong><a href="https://www.yunyoujun.cn/posts/how-to-realize-badge-rotation/" title="旋转吧！徽章！">https://www.yunyoujun.cn/posts/how-to-realize-badge-rotation/</a></li><li class="post-copyright-license"><strong>版权声明：</strong>本博客所有文章除特别声明外，均默认采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh" target="_blank" rel="noopener" title="CC BY-NC-SA 4.0 "><svg class="icon"><use xlink:href="#icon-creative-commons-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-by-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-nc-line"></use></svg><svg class="icon"><use xlink:href="#icon-creative-commons-sa-line"></use></svg></a> 许可协议。</li></ul></section></article><div class="post-nav"><div class="post-nav-item"><a class="post-nav-prev" href="/posts/how-to-write-a-web-component/" rel="prev" title="从零开始写一个 Web Component - GitHub Corners"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-left-s-line"></use></svg><span class="post-nav-text">从零开始写一个 Web Component - GitHub Corners</span></a></div><div class="post-nav-item"><a class="post-nav-next" href="/posts/why-i-use-upyun-cdn/" rel="next" title="又拍云—年轻人的第一个 CDN"><span class="post-nav-text">又拍云—年轻人的第一个 CDN</span><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-right-s-line"></use></svg></a></div></div></div><div class="hty-card" id="comment"><div class="comment-tooltip text-center"><span>如果您有任何关于博客内容的相关讨论，欢迎前往 <a href="https://github.com/YunYouJun/yunyoujun.github.io/discussions" target="_blank">GitHub Discussions</a> 与我交流。</span><br></div><div id="waline"></div><script>Yun.utils.getScript("https://cdn.jsdelivr.net/npm/@waline/client/dist/Waline.min.js", () => {
+  const walineConfig = {"enable":true,"serverURL":"https://waline.yunyoujun.cn","comment":true,"visitor":true,"emoji":["https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/bilibili/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/weibo/","https://cdn.jsdelivr.net/gh/walinejs/emojis@latest/qq/"],"locale":{"placeholder":"填写邮箱，可以收到回复通知哦～"},"requiredMeta":["nick"],"el":"#waline","lang":"zh-CN"}
+  walineConfig.path = "/posts/how-to-realize-badge-rotation/"
+  walineConfig.dark = 'html[data-user-color-scheme="dark"]'
+  new Waline(walineConfig)
+}, window.Waline);</script></div></main><footer class="sidebar-translate" id="footer"><div class="beian"><a rel="noopener" href="https://beian.miit.gov.cn/" target="_blank">苏ICP备17038157号</a></div><div class="copyright"><span>&copy; 2016 – 2021 </span><a class="with-love" id="animate" target="_blank" rel="noopener" href="https://sponsors.yunyoujun.cn" title="云游君的赞助者们"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-cloud-line"></use></svg></a><span class="author"> 云游君</span></div><div class="powered"><span>由 <a href="https://hexo.io" target="_blank" rel="noopener">Hexo</a> 驱动 v5.4.0</span><span class="footer-separator">|</span><span>主题 - <a rel="noopener" href="https://github.com/YunYouJun/hexo-theme-yun" target="_blank"><span>Yun</span></a> v1.7.0</span></div><div class="footer-support"><span>本网站由</span><a class="footer-support-logo" href="https://www.upyun.com" target="blank" title="又拍云"><img height="30" src="https://cdn.jsdelivr.net/gh/YunYouJun/cdn/img/logo/upyun-logo.png" alt="又拍云"></a><span>提供 CDN 加速</span></div></footer><a class="hty-icon-button" id="back-to-top" aria-label="back-to-top" href="#"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-arrow-up-s-line"></use></svg><svg class="progress-circle-container" viewBox="0 0 100 100"><circle class="progress-circle" id="progressCircle" cx="50" cy="50" r="48" fill="none" stroke="#0078E7" stroke-width="2" stroke-linecap="round"></circle></svg></a><a class="popup-trigger hty-icon-button icon-search" id="search" href="javascript:;" title="搜索"><span class="site-state-item-icon"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-search-line"></use></svg></span></a><script>window.addEventListener("DOMContentLoaded", () => {
+  // Handle and trigger popup window
+  document.querySelector(".popup-trigger").addEventListener("click", () => {
+    document.querySelector(".popup").classList.add("show");
+    setTimeout(() => {
+      document.querySelector(".search-input").focus();
+    }, 100);
+  });
+
+  // Monitor main search box
+  const onPopupClose = () => {
+    document.querySelector(".popup").classList.remove("show");
+  };
+
+  document.querySelector(".popup-btn-close").addEventListener("click", () => {
+    onPopupClose();
+  });
+
+  window.addEventListener("keyup", event => {
+    if (event.key === "Escape") {
+      onPopupClose();
+    }
+  });
+});
+</script><script defer src="https://cdn.jsdelivr.net/npm/algoliasearch@4/dist/algoliasearch-lite.umd.js"></script><script defer src="https://cdn.jsdelivr.net/npm/instantsearch.js@4/dist/instantsearch.production.min.js"></script><script defer src="/js/search/algolia-search.js"></script><div class="popup search-popup"><div class="search-header"><span class="popup-btn-close close-icon hty-icon-button"><svg class="icon" aria-hidden="true"><use xlink:href="#icon-close-line"></use></svg></span></div><div class="search-input-container"></div><div class="algolia-results"><div id="algolia-stats"></div><div id="algolia-hits"></div><div class="algolia-pagination" id="algolia-pagination"></div></div></div></div><!-- hexo injector body_end start --><script src="/js/hexo-tag-common.js"></script><!-- hexo injector body_end end --></body></html>
